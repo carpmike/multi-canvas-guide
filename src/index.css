@@ -2,39 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Guessum Design System - Comic Book Aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Guessum Color Palette */
+    --guessum-primary: 25 100% 49%;        /* #F68F04 - Vibrant orange-red */
+    --guessum-secondary: 211 100% 50%;     /* #0080FF - Bright blue */
+    --guessum-tertiary: 51 100% 50%;       /* #FFD700 - Bold yellow */
+    --guessum-off-white: 60 9% 98%;        /* Off-white background */
+    --guessum-dark: 220 13% 18%;           /* Dark text color */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Semantic tokens mapped to Guessum colors */
+    --background: var(--guessum-off-white);
+    --foreground: var(--guessum-dark);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --card: var(--guessum-off-white);
+    --card-foreground: var(--guessum-dark);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: var(--guessum-off-white);
+    --popover-foreground: var(--guessum-dark);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: var(--guessum-primary);
+    --primary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: var(--guessum-secondary);
+    --secondary-foreground: 0 0% 100%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --tertiary: var(--guessum-tertiary);
+    --tertiary-foreground: var(--guessum-dark);
+
+    --muted: 60 9% 96%;
+    --muted-foreground: 220 13% 45%;
+
+    --accent: var(--guessum-tertiary);
+    --accent-foreground: var(--guessum-dark);
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 60 9% 89%;
+    --input: 60 9% 89%;
+    --ring: var(--guessum-primary);
 
     --radius: 0.5rem;
 
@@ -101,5 +110,37 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* Guessum Typography Classes */
+  .font-display {
+    font-family: 'Luckiest Guy', cursive;
+  }
+
+  .font-body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* Halftone dot pattern background */
+  .dot-pattern {
+    background-image: radial-gradient(circle, hsl(var(--guessum-primary) / 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Comic book style animations */
+  .pulse-comic {
+    animation: pulse-comic 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-comic {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
   }
 }
